@@ -164,18 +164,42 @@ Hi {{1}}, invoice {{2}} sebesar {{3}} telah terbit. Cek: {{4}}</pre>
 
     <br>
 
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan terkirim! (dummy)');">
-      <label>Nama</label>
-      <input type="text" placeholder="Masukkan nama Anda" required>
+   <form class="contact-form" onsubmit="sendToWhatsApp(event)">
+  <label>Nama</label>
+  <input id="name" type="text" placeholder="Masukkan nama Anda" required>
 
-      <label>Email</label>
-      <input type="email" placeholder="Masukkan email Anda" required>
+  <label>Email</label>
+  <input id="email" type="email" placeholder="Masukkan email Anda" required>
 
-      <label>Pesan</label>
-      <textarea placeholder="Tulis pesan Anda..." required></textarea>
+  <label>Pesan</label>
+  <textarea id="message" placeholder="Tulis pesan Anda..." required></textarea>
 
-      <button type="submit" class="btn">Kirim Pesan</button>
-    </form>
+  <button type="submit" class="btn">Kirim ke WhatsApp</button>
+</form>
+
+<script>
+  function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Ganti dengan nomor kamu
+    const phone = "6285711164332"; 
+
+    const text =
+      `Halo, saya ingin menghubungi IntegriHub:%0A` +
+      `%0ANama: ${name}` +
+      `%0AEmail: ${email}` +
+      `%0APesan: ${message}`;
+
+    const url = `https://wa.me/${phone}?text=${text}`;
+
+    window.open(url, "_blank");
+  }
+</script>
+
   </div>
 </section>
 
