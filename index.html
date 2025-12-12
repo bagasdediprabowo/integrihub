@@ -1,79 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IntegriHub</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IntegriHub — WhatsApp API & Automation</title>
+  <meta name="description" content="IntegriHub — Integrasi WhatsApp Business API, chatbot AI, automation & broadcast untuk bisnis." />
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f6f8fa; }
-    header { background:#0b5ed7; padding:20px; color:white; text-align:center; }
-    nav { background:#0a53be; padding:10px; text-align:center; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-    section { padding:40px; max-width:900px; margin:auto; }
-    h1, h2 { color:#0b5ed7; }
-    footer { background:#0b5ed7; color:white; padding:20px; text-align:center; margin-top:40px; }
-    .card { background:white; padding:25px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-bottom:20px; }
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#4f46e5;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#071023 0%, #071428 60%);color:#e6eef8}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#6c5ce7,#00b4d8);box-shadow:0 6px 20px rgba(79,70,229,0.18)}
+    .logo svg{width:28px;height:28px}
+    h1{font-size:20px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+
+    .hero{display:flex;gap:32px;align-items:center;margin-top:36px}
+    .hero-left{flex:1}
+    .eyebrow{display:inline-block;background:rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;color:#bcd2ff;font-weight:600;margin-bottom:18px}
+    .headline{font-size:38px;line-height:1.05;margin:0 0 12px}
+    .lead{color:var(--muted);max-width:640px;margin-bottom:18px}
+    .cta{display:inline-flex;gap:12px}
+    .btn{background:linear-gradient(90deg,#6c5ce7,#4f46e5);padding:12px 18px;border-radius:10px;color:white;text-decoration:none;font-weight:600;box-shadow:0 8px 30px rgba(79,70,229,0.18)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .feature h3{margin:0 0 8px}
+    .feature p{color:var(--muted);margin:0}
+
+    .section{margin-top:48px}
+    .footer{margin-top:56px;padding:24px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* responsive */
+    @media (max-width:860px){.hero{flex-direction:column}.features{grid-template-columns:repeat(1,1fr)}nav{display:none}.headline{font-size:28px}}
+
+    /* small legal content */
+    .small{font-size:13px;color:var(--muted)}
+
+    /* contact box */
+    .contact-box{margin-top:20px;border-radius:10px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;gap:12px;align-items:center}
+    .contact-box div{font-size:14px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>IntegriHub</h1>
-    <p>Integrasi WhatsApp Business API, Automation, dan Chatbot</p>
-  </header>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- simple SVG mark -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="4" fill="white" opacity="0.06"/>
+            <path d="M7 12h10M7 8h10M7 16h6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>IntegriHub</h1>
+          <div class="small">Integrasi WhatsApp Business API • Chatbot • Automation</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="#legal">Legal</a>
+      </nav>
+    </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="#privacy">Privacy Policy</a>
-  </nav>
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow">Enterprise-grade WhatsApp</div>
+          <h2 class="headline">Scale conversations with customers using WhatsApp API & smart automation.</h2>
+          <p class="lead">IntegriHub membantu bisnis menyederhanakan komunikasi: onboarding WABA, template & flows, chatbot AI, notifikasi pembayaran, dan broadcast pesan yang compliant.</p>
+          <div class="cta">
+            <a class="btn" href="#contact">Get Started</a>
+            <a class="btn ghost" href="#features">Explore Features</a>
+          </div>
 
-  <section id="home">
-    <div class="card">
-      <h2>Solusi WhatsApp Business API untuk Bisnis Anda</h2>
-      <p>IntegriHub membantu bisnis Anda terhubung dengan pelanggan melalui WhatsApp Business API, fitur automation, chatbot AI, dan broadcast pesan yang aman serta berskala.</p>
-    </div>
-  </section>
+          <div class="contact-box">
+            <div>
+              <strong>📞</strong> <a href="tel:+6285711164332" style="color:#cfe9ff;text-decoration:none">+62 857-1116-4332</a><br>
+              <strong>✉️</strong> <a href="mailto:integrihub@gmail.com" style="color:#cfe9ff;text-decoration:none">integrihub@gmail.com</a>
+            </div>
+            <div style="margin-left:auto;color:var(--muted)">Address: Jalan Astino, Desa Sidokerto, Kec. Karangjati, Kab. Ngawi</div>
+          </div>
+        </div>
 
-  <section id="about">
-    <div class="card">
-      <h2>Tentang Kami</h2>
-      <p>IntegriHub adalah penyedia layanan integrasi WhatsApp Business API yang berbasis di Ngawi, Jawa Timur. Kami menyediakan layanan onboarding WABA, automation, chatbot AI, serta integrasi dengan berbagai platform.</p>
-    </div>
-  </section>
+        <div class="card" style="width:420px;flex-shrink:0">
+          <h3 style="margin-top:0">Quick Demo</h3>
+          <p class="small">Contoh pesan template & flow</p>
+          <div style="background:var(--glass);padding:12px;border-radius:8px;margin-top:12px">
+            <pre style="margin:0;color:#bfe0ff;font-size:13px;overflow:auto">Template: invoice_notification
+Hi {{1}}, invoice {{2}} sebesar {{3}} telah terbit. Cek: {{4}}</pre>
+          </div>
 
-  <section id="services">
-    <div class="card">
-      <h2>Layanan Kami</h2>
-      <ul>
-        <li>Onboarding WhatsApp Business API</li>
-        <li>Integrasi API & Dashboard Custom</li>
-        <li>Chatbot AI</li>
-        <li>Broadcast Pesan (Template)</li>
-        <li>Automasi & Workflow Bisnis</li>
-      </ul>
-    </div>
-  </section>
+          <div style="margin-top:12px">
+            <a class="btn" href="#contact">Request Onboarding</a>
+          </div>
+        </div>
+      </section>
 
-  <section id="contact">
-    <div class="card">
-      <h2>Kontak</h2>
-      <p><strong>Alamat:</strong> Jalan Astino, Desa Sidokerto, Kec. Karangjati, Kab. Ngawi, Jawa Timur</p>
-      <p><strong>WhatsApp:</strong> 085711164332</p>
-      <p><strong>Email:</strong> admin@integrihub.com</p>
-    </div>
-  </section>
+      <section id="features" class="section">
+        <div class="card">
+          <h2>Features</h2>
+          <div class="features">
+            <div class="feature">
+              <h3>WABA Onboarding</h3>
+              <p>Migrasi nomor, verifikasi bisnis, dan setup Cloud API untuk kirim template & pesan transactional.</p>
+            </div>
+            <div class="feature">
+              <h3>Chatbot & AI</h3>
+              <p>Integrasi model LLM untuk menjawab pertanyaan pelanggan secara otomatis via WhatsApp.</p>
+            </div>
+            <div class="feature">
+              <h3>Broadcast & MM Lite</h3>
+              <p>Blasting sesuai kebijakan Meta, reporting, dan analytics untuk kampanye marketing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <section id="privacy">
-    <div class="card">
-      <h2>Privacy Policy</h2>
-      <p>Kami menghormati privasi Anda. IntegriHub hanya mengumpulkan informasi yang dibutuhkan untuk menyediakan layanan integrasi WhatsApp dan menjamin keamanan data pengguna sesuai standar industri.</p>
-    </div>
-  </section>
+      <section id="pricing" class="section">
+        <div class="card">
+          <h2>Pricing (sample)</h2>
+          <p class="small">Paket fleksibel: Setup fee + monthly support</p>
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+            <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
+              <h3>Starter</h3>
+              <div class="small">Setup + Basic automation</div>
+              <div style="margin-top:12px;font-weight:700">Rp 1.500.000 (once)</div>
+            </div>
+            <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
+              <h3>Business</h3>
+              <div class="small">WABA + chatbot + integration</div>
+              <div style="margin-top:12px;font-weight:700">Rp 3.500.000 (once)</div>
+            </div>
+            <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px">
+              <h3>Enterprise</h3>
+              <div class="small">Custom SLA & volume blasting</div>
+              <div style="margin-top:12px;font-weight:700">Contact us</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer>
-    <p>© 2025 IntegriHub. All rights reserved.</p>
-  </footer>
+      <section id="contact" class="section">
+        <div class="card">
+          <h2>Contact Us</h2>
+          <p class="small">Siap bantu onboarding & integrasi. Kirim detail bisnis Anda dan tim kami akan kontak segera.</p>
+          <p><strong>Email:</strong> <a href="mailto:integrihub@gmail.com">integrihub@gmail.com</a></p>
+          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+6285711164332">+62 857-1116-4332</a></p>
+          <p><strong>Address:</strong> Jalan Astino, Desa Sidokerto, Kec. Karangjati, Kab. Ngawi, Jawa Timur</p>
+        </div>
+      </section>
+
+      <section id="legal" class="section">
+        <div class="card">
+          <h2>Legal & Policies</h2>
+          <h3>Privacy Policy</h3>
+          <p class="small">IntegriHub menghormati privasi pengguna. Kami hanya menyimpan data yang diperlukan untuk layanan integrasi dan komunikasi melalui WhatsApp. Data tidak akan dibagikan ke pihak ketiga tanpa persetujuan.</p>
+          <h3>Terms & Conditions</h3>
+          <p class="small">Layanan disediakan sesuai kontrak. Biaya, SLA, dan penggunaan data dijelaskan di dalam perjanjian layanan yang akan disepakati saat onboarding.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div>© 2025 IntegriHub — All rights reserved</div>
+      <div class="small">Built for verification & demo • Email: integrihub@gmail.com</div>
+    </footer>
+  </div>
 </body>
 </html>
