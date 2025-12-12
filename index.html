@@ -147,15 +147,38 @@ Hi {{1}}, invoice {{2}} sebesar {{3}} telah terbit. Cek: {{4}}</pre>
         </div>
       </section>
 
-      <section id="contact" class="section">
-        <div class="card">
-          <h2>Contact Us</h2>
-          <p class="small">Siap bantu onboarding & integrasi. Kirim detail bisnis Anda dan tim kami akan kontak segera.</p>
-          <p><strong>Email:</strong> <a href="mailto:integrihub@gmail.com">integrihub@gmail.com</a></p>
-          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+6285711164332">+62 857-1116-4332</a></p>
-          <p><strong>Address:</strong> Jalan Astino, Desa Sidokerto, Kec. Karangjati, Kab. Ngawi, Jawa Timur</p>
-        </div>
-      </section>
+     <section id="contact" class="section">
+  <div class="card">
+    <h2>Contact Us</h2>
+    
+    <p class="small">
+      Jika Anda membutuhkan bantuan terkait WhatsApp Business API, integrasi automation, chatbot,
+      atau layanan teknis lainnya, Anda dapat menghubungi kami melalui informasi berikut:
+    </p>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> integrihub@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +62 857-1116-4332</p>
+      <p><strong>Jam Operasional:</strong> Senin – Jumat, 08.00 – 17.00 WIB</p>
+    </div>
+
+    <br>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan terkirim! (dummy)');">
+      <label>Nama</label>
+      <input type="text" placeholder="Masukkan nama Anda" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Masukkan email Anda" required>
+
+      <label>Pesan</label>
+      <textarea placeholder="Tulis pesan Anda..." required></textarea>
+
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+  </div>
+</section>
+
 
       <section id="legal" class="section">
         <div class="card">
